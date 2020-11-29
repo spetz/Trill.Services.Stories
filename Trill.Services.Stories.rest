@@ -1,0 +1,36 @@
+@url = http://localhost:5050
+@storyId = 1234567890
+@userId = dbe1396d-21a1-4228-95da-de7200a8c352
+
+###
+GET {{url}}
+
+###
+GET {{url}}/stories
+
+###
+GET {{url}}/stories/{{storyId}}
+
+###
+POST {{url}}/stories
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "title": "Test 1",
+  "text": "Lorem ipsum text",
+  "tags": ["dotnet", "csharp"],
+  "visibleFrom": null,
+  "visibleTo": null,
+  "highlighted": false
+}
+
+###
+POST {{url}}/stories/{{storyId}}/rate
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "storyId": "{{storyId}}",
+  "rate": 1
+}
